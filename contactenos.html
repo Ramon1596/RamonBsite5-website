@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Proyecto final</title>
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+</head>
+<body>
+<!-- header -->
+<header>
+	<div style="float: left;">
+	<div class="logo">
+		<img src="imagenes/Logo gamer.png">
+		<b> Games AlterRB</b>
+		 </div>
+	</div>
+<div id="div_diasemana" style="float: left;">
+     <p>hoy es<span id="item_day"> lune</span>!</p>
+  </div>
+</div>
+<div style="float: right;">
+<ul class="menu">
+	<li><a href="index.html">inicio</a>
+	</li>
+	<li><a href="quienesSomos.html">Quienes somos?</a>
+	</li>
+	<li><a href="productos.html">Productos</a>
+	</li>
+	<li><a href="contactenos.html" class="activo">Contactenos</a>
+	</li>
+  </ul>
+</div>
+</header>
+<!-- contenido--> 
+<div class="contenido">
+<div class="portada" style="background-image: url(imagenes/Portada.jpg);">
+	</div>
+	<div class="contenedor"><h2 style="text-align: center;">Contactenos</h2>
+	<div class="contenedor">
+		<table id="tabla_contacto">
+			<tbody>
+				<tr>
+					<td>
+						<h4>Ubicacion</h4>
+					<p>Albrook Mall<br>Pasillo del dinosaurio<br>Local #120</p>	
+					</td>
+					<td>
+						<h4>Telefono</h4>
+						<p>
+							<a href="5072002625" style="color: gold;">(507) 200-2658</a>
+						</p>
+					</td>
+					<td>
+						<h4>Correo Electronico</h4>
+						<p><a href="mailto:GamersRb15@software.com.pa" style="color: gold;">GamersRb15@software.com.pa</a></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="contenedor">
+		<div class="google_map">
+		  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11146.67013847018!2d-79.5555773079488!3d8.97739068613849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca898f1c2787d%3A0x45722b84263f6ee9!2sGame%20Universe%20%7C%20Albrook%20Mall!5e0!3m2!1sen!2spa!4v1636520737561!5m2!1sen!2spa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>	
+		</div>
+</div>
+</div>
+<div class="contenedor">
+	<form>
+		<h2>Contactanos</h2>
+		<table id="tabla_formulario" style="margin-top: 20px;">
+			<tbody>
+				<tr>
+					<td>
+					<label>Nombre:</label>	
+					<input type="text" id="input_nombre" placeholder="Escriba su nombre" name="">	
+					</td>
+					<td>
+						<label>Apellido:</label>
+					<input type="text" id="input_telefono" placeholder="Escriba su Apellido" name="">	
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<label>Telefono</label>
+					<input type="text" id="input_apellido" placeholder="Escriba su Numero de Telefono" name="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<label>Correo electronico:</label>
+					<input type="text" id="input_email" placeholder="Escriba su Direccion de Correo" name="">	
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<label>Mensaje:</label>
+						<textarea id="textarea_mensaje"rows="10" cols="50"placeholder="Escriba su mensaje" }></textarea>
+					</td>
+					<td></td>	
+				</tr>
+			</tbody>
+		</table>
+		<button id="btn_enviar">Enviar Mensaje</button>
+	</form>
+</div>
+	</main>
+<!-- footer-->
+<footer>
+<p>Ramon Beitia 2021. sitio web con derechos</p>
+</footer>
+<!--Dialog-->
+<dialog id="dialogo_mensaje">
+	<h2>Informacion del mensaje</h2>
+	<table id="tabla_mensaje" border="1px">
+		<thead>
+			<tr style="background: #107dac; color:#fff;">
+			<td>Nombre</td>
+			<td>Apellido</td>
+			<td>Telefono</td>
+			<td>Correo</td>
+			<td>Mensaje</td>
+			</tr>
+		</thead>
+		<tbody id="tabla_contenido">
+			
+		</tbody>
+	</table>
+	<button id="btn_ok">Aceptar</button>
+</dialog>
+<script scr="js/funciones.js"></script>
+<script>
+	//variables
+	var obj_dialog = document.getElementbyId("dialogo_mensaje");
+	var btn_enviar = document.getElementbyId("btn_enviar");
+	var btn_ok = document.getElementbyId("btn_ok");
+
+	btn_enviar.addEventlistener("click", function(e){
+		//variables
+	var nombre = document.getElementbyId("input_nombre").value;
+	var apellid = document.getElementbyId("input_apellido").value;
+	var telefono = document.getElementbyId("input_telefono").value;
+	var email = document.getElementbyId("input_email").value;
+	var mensaje = document.getElementbyId("textarea_mensaje").value;
+
+      
+      var elementosTd = "<tr><td>" + nombre + "</td><td>" + apellido + "</td><td>" + telefono + "</td><td>" + email + "</td><td>" + mensaje + "</td><tr>"
+      var tr = document.createElement("tr");
+      tr.innerHTML = elementostd;
+      document.getElementbyId("tabla_contenido").appendChild(tr)
+
+		obj_dialog.showModal();
+          e.preventDefault();
+	});
+
+	btn_ok.addEventlistener("click", function(){
+		obj_dialog.close();
+	});
+</script>
+</body>
+</html>
